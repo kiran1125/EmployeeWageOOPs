@@ -1,7 +1,24 @@
 package com.bridgeLabz;
-
+import java.util.Random;
 public class EmpWageOops {
     public static void main(String[] args) {
-        System.out.println("Welcome to Employee Wage Computation");
+        Attendance attendance = new Attendance();
+        attendance.EmployeeCheck();
+    }
+}
+class Attendance{
+    final int IS_PRESENT = 1;
+
+    int GetEmployeePresent(int a) {
+        Random r = new Random();
+        int empCheck = r.nextInt(a);
+        return empCheck;
+    }
+     void EmployeeCheck() {
+        int empCheck = GetEmployeePresent(2);
+        if (empCheck == IS_PRESENT) {
+            System.out.println("Employee is present");
+        } else
+            System.out.println("Employee is Absent");
     }
 }
