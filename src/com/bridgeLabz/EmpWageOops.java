@@ -21,18 +21,23 @@ class Attendance{
     }
      void EmployeeCheck() {
         int empCheck = GetEmployeePresent(3);
-        if (empCheck == IS_PRESENT) {
-            System.out.println("Employee is present");
-            dailyWage = WAGE_PER_HOUR * IS_FULL_TIME;
+        switch (empCheck) {
+            case IS_PRESENT: {
+                System.out.println("Employee is present");
+                dailyWage = WAGE_PER_HOUR * IS_FULL_TIME;
+                break;
 
         }
-        else if (empCheck == IS_ABSENT){
-            System.out.println("Employee is Absent");
-            dailyWage = dailyWage;
+            case IS_ABSENT: {
+                System.out.println("Employee is Absent");
+                dailyWage = dailyWage;
+                break;
         }
-        else {
-           System.out.println("Employee is Part time");
-           dailyWage = WAGE_PER_HOUR * IS_PART_TIME;
+            default: {
+                System.out.println("Employee is Part time");
+                dailyWage = WAGE_PER_HOUR * IS_PART_TIME;
+                break;
+            }
         }
         System.out.println("Daily Wage : " + dailyWage);
     }
